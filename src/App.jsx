@@ -13,14 +13,14 @@ function App() {
       {loading ? (
         <Loader onFinish={() => setLoading(false)} />
       ) : (
-        <>
-          <ScrollProgress />
-          <Background />
+            <div className="theme-bg min-h-screen transition-all duration-500">
+              <ScrollProgress />
+              <Background />
 
-          <div className="relative z-10">
-            <Home />
-          </div>
-        </>
+              <div className="relative z-10">
+                <Home />
+              </div>
+            </div>
       )}
     </>
   );

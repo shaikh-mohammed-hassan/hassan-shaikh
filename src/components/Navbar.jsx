@@ -1,3 +1,5 @@
+import ThemeToggle from "./ThemeToggle";
+
 const links = [
   "home",
   "about",
@@ -19,6 +21,7 @@ export default function Navbar() {
       z-50
       "
     >
+
       <div
         className="
         max-w-6xl
@@ -39,6 +42,9 @@ export default function Navbar() {
         >
           Hassan
         </h2>
+              <div className="flex items-center gap-4">
+        <ThemeToggle />
+      </div>
 
         <div className="flex gap-6">
 

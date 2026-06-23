@@ -191,5 +191,6 @@ export default function Projects() {
   </a>
 </div>
     </SectionWrapper>
+    
   );
 }

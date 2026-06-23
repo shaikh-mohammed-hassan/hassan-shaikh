@@ -3,32 +3,32 @@ export const projects = [
     title: "Fashion Designer E-Commerce",
     description: "Responsive e-commerce website.",
     category: "Frontend",
-    tech: ["HTML", "CSS", "JavaScript"],
     image: "/projects/fashion.png",
-    github: "#",
-    live: "#",
-  },
-
-  {
-    title: "Smart Voice Assistant",
-    description: "AI-powered voice assistant.",
-    category: "AI",
-    tech: ["Python", "Speech Recognition"],
-    image: "/projects/voice.png",
+    tech: ["HTML", "CSS", "JavaScript"],
     github: "#",
     live: "#",
   },
 
   {
     title: "Weather App",
-    description: "Weather application using API.",
+    description: "Weather application using OpenWeather API.",
     category: "React",
-    tech: ["React", "API"],
     image: "/projects/weather.png",
+    tech: ["React", "API", "Tailwind"],
     github: "#",
     live: "#",
   },
 
+  {
+    title: "Smart Voice Assistant",
+    description: "AI-powered voice assistant using Python.",
+    category: "AI",
+    image: "/projects/voice.png",
+    tech: ["Python", "Speech Recognition"],
+    github: "#",
+    live: "#",
+  },
+];
   // {
   //   title: "Nitish Academy Website",
   //   description:
@@ -38,4 +38,3 @@ export const projects = [
   //   github: "#",
   //   live: "#",
   // },
-];

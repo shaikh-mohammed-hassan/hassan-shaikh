@@ -1,6 +1,6 @@
 export default function Background() {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#050816]">
+    <div className="fixed inset-0 -z-10 overflow-hidden theme-background">
 
       {/* TOP RIGHT WAVE */}
       <div className="wave-orbit wave-orbit-1">

@@ -16,7 +16,8 @@ export default function Education() {
             <div
               key={index}
               className="
-                bg-white/80
+                bg-[var(--card)]
+                shadow-xl
                 dark:bg-slate-900/50
                 border border-slate-200
                 dark:border-slate-700
