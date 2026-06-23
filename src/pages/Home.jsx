@@ -9,7 +9,6 @@ import Hero from "../sections/Hero";
 import About from "../sections/About";
 import Skills from "../sections/Skills";
 import Education from "../sections/Education";
-import Services from "../sections/Services";
 import Projects from "../sections/Projects";
 
 export default function Home() {
@@ -21,7 +20,6 @@ export default function Home() {
       <About />
       <Skills />
       <Education />
-      <Services />
       <Projects />
       <Achievements />
       <Certifications />
