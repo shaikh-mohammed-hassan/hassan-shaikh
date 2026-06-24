@@ -4,19 +4,47 @@ import {
   FaLinkedin,
   FaEnvelope,
 } from "react-icons/fa";
+
 import { socials } from "../data/socials";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center px-6"
+      className="
+      min-h-screen
+      flex
+      items-center
+      justify-center
+      px-4
+      sm:px-6
+      pt-20
+      "
     >
-      <div className="max-w-4xl text-center">
+      <div
+        className="
+        max-w-5xl
+        w-full
+        text-center
+        px-2
+        "
+      >
         {/* Name */}
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight whitespace-nowrap">
-          Mohammed Hassan <span className="text-cyan-400">Shaikh</span>
+        <h1
+          className="
+          text-4xl
+          sm:text-5xl
+          lg:text-6xl
+          font-bold
+          leading-tight
+          "
+        >
+          Mohammed Hassan{" "}
+          <span className="theme-accent">
+            Shaikh
+          </span>
         </h1>
+
         {/* Animated Roles */}
         <TypeAnimation
           sequence={[
@@ -30,33 +58,52 @@ export default function Hero() {
           wrapper="span"
           speed={50}
           repeat={Infinity}
-          className="mt-4 block text-2xl md:text-3xl text-cyan-400"
+          className="
+          mt-4
+          block
+          text-xl
+          sm:text-2xl
+          md:text-3xl
+          font-medium
+          theme-accent
+          "
         />
 
-        {/* About */}
-        <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-400">
-          Computer Engineering graduate specializing in Frontend Development
-          with React, JavaScript, and modern web technologies, while
-          continuously expanding my expertise in Artificial Intelligence.
+        {/* Description */}
+        <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg leading-7 theme-secondary">
+          Computer Engineering graduate specializing in React,
+          Frontend Development, and modern web technologies.
         </p>
 
         {/* Action Buttons */}
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
+        <div
+          className="
+          mt-10
+          flex
+          flex-col
+          sm:flex-row
+          justify-center
+          items-center
+          gap-4
+          "
+        >
           <a
             href="/Hassan_resume.pdf"
             download
             className="
-              rounded-xl
-              bg-cyan-500
-              px-6
-              py-3
-              font-medium
-              text-white
-              transition-all
-              duration-300
-              hover:bg-cyan-600
-              hover:shadow-lg
-              hover:shadow-cyan-500/20
+            w-full
+            sm:w-auto
+            rounded-xl
+            bg-cyan-500
+            px-6
+            py-3
+            font-medium
+            text-white
+            transition-all
+            duration-300
+            hover:bg-cyan-600
+            hover:shadow-lg
+            hover:shadow-cyan-500/20
             "
           >
             Download Resume
@@ -65,17 +112,19 @@ export default function Hero() {
           <a
             href="#contact"
             className="
-              rounded-xl
-              border
-              border-cyan-500
-              px-6
-              py-3
-              font-medium
-              text-cyan-400
-              transition-all
-              duration-300
-              hover:bg-cyan-500/10
-              hover:border-cyan-400
+            w-full
+            sm:w-auto
+            rounded-xl
+            border
+            border-cyan-500
+            px-6
+            py-3
+            font-medium
+            text-cyan-400
+            transition-all
+            duration-300
+            hover:bg-cyan-500/10
+            hover:border-cyan-400
             "
           >
             Contact Me
@@ -83,22 +132,31 @@ export default function Hero() {
         </div>
 
         {/* Divider */}
-        <div className="mx-auto mt-10 h-px w-32 bg-white/10" />
+        <div className="mx-auto mt-10 h-px w-32 bg-[var(--card)]" />
 
         {/* Social Links */}
-        <div className="mt-8 flex justify-center gap-6">
+        <div
+          className="
+          mt-8
+          flex
+          justify-center
+          gap-5
+          sm:gap-6
+          "
+        >
           <a
             href={socials.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
             className="
-              text-3xl
-              text-gray-400
-              transition-all
-              duration-300
-              hover:-translate-y-1
-              hover:text-cyan-400
+            text-2xl
+            sm:text-3xl
+            theme-secondary
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:text-cyan-400
             "
           >
             <FaGithub />
@@ -110,12 +168,13 @@ export default function Hero() {
             rel="noopener noreferrer"
             aria-label="LinkedIn"
             className="
-              text-3xl
-              text-gray-400
-              transition-all
-              duration-300
-              hover:-translate-y-1
-              hover:text-cyan-400
+            text-2xl
+            sm:text-3xl
+            theme-secondary
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:text-cyan-400
             "
           >
             <FaLinkedin />
@@ -125,12 +184,13 @@ export default function Hero() {
             href={socials.email}
             aria-label="Email"
             className="
-              text-3xl
-              text-gray-400
-              transition-all
-              duration-300
-              hover:-translate-y-1
-              hover:text-cyan-400
+            text-2xl
+            sm:text-3xl
+            theme-secondary
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:text-cyan-400
             "
           >
             <FaEnvelope />

@@ -19,10 +19,11 @@ export default function Skills() {
               <div
                 key={skill.name}
                 className="
-                bg-white/5
+                bg-[var(--card)]
                 backdrop-blur-lg
                 border
-                border-white/10
+                border-white/20
+                shadow-xl
                 rounded-xl
                 p-6
                 flex

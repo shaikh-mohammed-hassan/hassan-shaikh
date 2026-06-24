@@ -59,10 +59,11 @@ export default function Projects() {
               layout
               whileHover={{ scale: 1.03 }}
               className="
-              bg-white/5
+              bg-[var(--card)]
               backdrop-blur-lg
               border
-              border-white/10
+              border-white/20
+              shadow-xl
               rounded-xl
               overflow-hidden
               "
