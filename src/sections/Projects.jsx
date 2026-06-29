@@ -69,50 +69,63 @@ export default function Projects() {
               </div>
 
               {/* Buttons */}
+              {/* Buttons */}
               <div className="flex items-center gap-4">
 
-                <a
-                  href={project.live}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="
-                  flex-1
-                  flex
-                  items-center
-                  justify-center
-                  gap-2
-                  py-3
-                  rounded-xl
-                  bg-blue-600
-                  hover:bg-blue-700
-                  transition
-                  font-semibold
-                  text-white
-                  "
-                >
-                  <FaExternalLinkAlt size={14} />
-                  Live Demo
-                </a>
+                {/* Show Live Demo only if available */}
+                {project.live && (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="
+                    flex-1
+                    flex
+                    items-center
+                    justify-center
+                    gap-2
+                    py-3
+                    rounded-xl
+                    bg-blue-600
+                    hover:bg-blue-700
+                    transition
+                    font-semibold
+                    text-white
+                    "
+                  >
+                    <FaExternalLinkAlt size={14} />
+                    Live Demo
+                  </a>
+                )}
 
+                {/* GitHub Button */}
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="
-                  w-12
-                  h-12
-                  flex
-                  items-center
-                  justify-center
-                  rounded-xl
-                  bg-white/5
-                  border
-                  border-white/10
-                  hover:bg-white/10
-                  transition
-                  "
+                  className={`
+                    ${
+                      project.live
+                        ? "w-12 h-12"
+                        : "flex-1 py-3"
+                    }
+                    flex
+                    items-center
+                    justify-center
+                    gap-2
+                    rounded-xl
+                    ${
+                      project.live
+                        ? "bg-white/5 border border-white/10 hover:bg-white/10"
+                        : "bg-slate-700 hover:bg-slate-600"
+                    }
+                    transition
+                    text-white
+                    font-semibold
+                  `}
                 >
                   <FaGithub />
+                  {!project.live && <span>View Code</span>}
                 </a>
 
               </div>
