@@ -5,9 +5,9 @@ import { GraduationCap } from "lucide-react";
 export default function Education() {
   return (
     <SectionWrapper id="education">
-      <div className="max-w-6xl mx-auto px-6">
-        
-        <h2 className="text-4xl font-bold mb-10 text-slate-900 dark:text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <h2 className="text-3xl sm:text-4xl font-bold mb-10">
           Education
         </h2>
 
@@ -17,27 +17,30 @@ export default function Education() {
               key={index}
               className="
                 bg-[var(--card)]
-                shadow-xl
-                dark:bg-slate-900/50
-                border border-slate-200
-                dark:border-slate-700
+                border
+                border-white/10
                 rounded-2xl
-                shadow-sm
-                px-6
-                py-6
+                shadow-lg
+                p-5
+                sm:p-6
                 flex
-                items-center
-                justify-between
-                gap-6
+                flex-col
+                md:flex-row
+                md:items-center
+                md:justify-between
+                gap-5
                 transition-all
-                hover:shadow-md
+                duration-300
+                hover:-translate-y-1
               "
             >
               {/* Left Side */}
-              <div className="flex items-center gap-5">
+              <div className="flex items-start sm:items-center gap-4 flex-1">
+
                 <div
                   className="
-                    h-12 w-12
+                    h-12
+                    w-12
                     rounded-xl
                     bg-blue-600
                     flex
@@ -50,27 +53,51 @@ export default function Education() {
                   <GraduationCap size={22} />
                 </div>
 
-                <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                <div className="min-w-0 flex-1">
+                  <h3 className="text-lg sm:text-xl font-bold break-words">
                     {item.degree}
                   </h3>
 
-                  <p className="text-slate-600 dark:text-slate-400">
+                  <p className="theme-secondary mt-1 break-words">
                     {item.institute}
                   </p>
+
+                  {/* Mobile Only */}
+                  <div className="mt-2 md:hidden">
+                    <p className="text-cyan-400 font-semibold">
+                      {item.score}
+                    </p>
+
+                    <p className="theme-secondary text-sm">
+                      {item.year}
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Right Side */}
-              <div className="text-right shrink-0">
-                <p className="text-slate-600 dark:text-slate-400">
-                  {item.year}
-                </p>
-
-                <p className="text-blue-600 font-semibold text-lg">
-                  {item.score}
-                </p>
               </div>
+              {/* Desktop Only */}
+<div
+  className="
+    hidden
+    md:flex
+    flex-col
+    items-end
+    text-right
+    shrink-0
+    ml-6
+  "
+>
+  <p className="text-cyan-400 font-bold text-lg">
+    {item.score}
+  </p>
+
+  <p className="theme-secondary">
+    {item.year}
+  </p>
+</div>
+
+
+
             </div>
           ))}
         </div>

@@ -1,197 +1,185 @@
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { FaGithub } from "react-icons/fa";
-
+import { ChevronDown, ChevronUp } from "lucide-react";
 import SectionWrapper from "../components/SectionWrapper";
 import { projects } from "../data/projects";
 
 export default function Projects() {
-  const [filter, setFilter] = useState("All");
-
-  const filteredProjects =
-    filter === "All"
-      ? projects
-      : projects.filter(
-          (project) => project.category === filter
-        );
+  const [showAll, setShowAll] = useState(false);
+  const displayedProjects = showAll
+    ? projects
+    : projects.slice(0, 3);
 
   return (
     <SectionWrapper id="projects">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
 
-        <h2 className="text-4xl font-bold mb-10">
+        {/* Heading */}
+        <h2 className="text-4xl font-bold text-center mb-14">
           Projects
         </h2>
 
-        {/* Filter Buttons */}
+        {/* Show only first 3 projects */}
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-        <div className="flex flex-wrap gap-3 mb-10">
-
-          {["All", "Frontend", "React", "AI"].map(
-            (category) => (
-              <button
-                key={category}
-                onClick={() => setFilter(category)}
-                className={`
-                  px-5 py-2 rounded-full transition
-                  ${
-                    filter === category
-                      ? "bg-cyan-500 text-white"
-                      : "bg-slate-800 text-gray-300"
-                  }
-                `}
-              >
-                {category}
-              </button>
-            )
-          )}
-
-        </div>
-
-        {/* Projects Grid */}
-
-        <div className="grid md:grid-cols-2 gap-6">
-
-          {filteredProjects.map((project) => (
-
-            <motion.div
+          {displayedProjects.map((project) => (
+            <div
               key={project.title}
-              layout
-              whileHover={{ scale: 1.03 }}
               className="
               bg-[var(--card)]
-              backdrop-blur-lg
               border
-              border-white/20
-              shadow-xl
-              rounded-xl
-              overflow-hidden
+              border-white/10
+              rounded-2xl
+              p-8
+              shadow-lg
+              hover:-translate-y-2
+              hover:shadow-xl
+              transition-all
+              duration-300
+              flex
+              flex-col
               "
             >
+              {/* Title */}
+              <h3 className="text-2xl font-bold mb-5">
+                {project.title}
+              </h3>
 
-              {/* Project Image */}
+              {/* Description */}
+              <p className="theme-secondary leading-8 flex-grow">
+                {project.description}
+              </p>
 
-              {project.image && (
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="
-                  w-full
-                  h-52
-                  object-cover
-                  "
-                />
-              )}
-
-              <div className="p-6">
-
-                <h3 className="text-2xl font-bold mb-3">
-                  {project.title}
-                </h3>
-
-                <p className="text-gray-400 mb-4">
-                  {project.description}
-                </p>
-
-                {/* Tech Stack */}
-
-                <div className="flex flex-wrap gap-2 mb-4">
-
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="
-                      bg-cyan-500/20
-                      text-cyan-400
-                      px-3
-                      py-1
-                      rounded-full
-                      text-sm
-                      border
-                      border-cyan-500/20
-                      "
-                    >
-                      {tech}
-                    </span>
-                  ))}
-
-                </div>
-
-                {/* Buttons */}
-
-                <div className="flex gap-4">
-
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
+              {/* Tech Stack */}
+              <div className="flex flex-wrap gap-2 mt-8 mb-8">
+                {project.tech.map((tech) => (
+                  <span
+                    key={tech}
                     className="
-                    px-4
-                    py-2
-                    bg-cyan-500
-                    rounded-lg
-                    hover:bg-cyan-600
-                    transition
+                    px-3
+                    py-1
+                    rounded-md
+                    text-sm
+                    bg-white/5
                     "
                   >
-                    GitHub
-                  </a>
-
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="
-                    px-4
-                    py-2
-                    border
-                    border-cyan-500
-                    rounded-lg
-                    hover:bg-cyan-500/10
-                    transition
-                    "
-                  >
-                    Live Demo
-                  </a>
-
-                </div>
-
+                    {tech}
+                  </span>
+                ))}
               </div>
 
-            </motion.div>
+              {/* Buttons */}
+              <div className="flex items-center gap-4">
 
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                  flex-1
+                  flex
+                  items-center
+                  justify-center
+                  gap-2
+                  py-3
+                  rounded-xl
+                  bg-blue-600
+                  hover:bg-blue-700
+                  transition
+                  font-semibold
+                  text-white
+                  "
+                >
+                  <FaExternalLinkAlt size={14} />
+                  Live Demo
+                </a>
+
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                  w-12
+                  h-12
+                  flex
+                  items-center
+                  justify-center
+                  rounded-xl
+                  bg-white/5
+                  border
+                  border-white/10
+                  hover:bg-white/10
+                  transition
+                  "
+                >
+                  <FaGithub />
+                </a>
+
+              </div>
+            </div>
           ))}
 
         </div>
+{/* Bottom Controls */}
+<div className="mt-8">
 
-      </div>
-      <div className="flex justify-center mt-12">
-  <a
-    href="https://github.com/shaikh-mohammed-hassan"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="
+  {/* See More / Hide */}
+  {projects.length > 3 && (
+    <div className="flex justify-end">
+        <button
+  onClick={() => setShowAll(!showAll)}
+  className="
     flex
     items-center
-    gap-3
-    px-8
-    py-4
-    rounded-xl
-    bg-gradient-to-r
-    from-cyan-500
-    to-purple-500
+    gap-1
+    text-cyan-400
+    hover:text-cyan-300
     font-semibold
-    hover:scale-105
-    transition-all
-    duration-300
-    shadow-lg
-    "
-  >
-    <FaGithub size={22} />
-    View More Projects
-  </a>
+    transition
+  "
+>
+  {showAll ? (
+    <>
+      Hide <ChevronUp size={18} />
+    </>
+  ) : (
+    <>
+      See More <ChevronDown size={18} />
+    </>
+  )}
+</button>
+    </div>
+  )}
+
+  {/* GitHub Button - Always Visible */}
+  <div className="flex justify-center mt-10">
+    <a
+      href="https://github.com/shaikh-mohammed-hassan"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+      flex
+      items-center
+      gap-3
+      px-8
+      py-4
+      rounded-xl
+      bg-blue-600
+      hover:bg-blue-700
+      transition
+      font-semibold
+      text-white
+      shadow-lg
+      "
+    >
+      <FaGithub />
+      View Projects on GitHub
+    </a>
+  </div>
+
 </div>
+
+      </div>
     </SectionWrapper>
-    
   );
 }
